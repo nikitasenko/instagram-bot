@@ -21,6 +21,8 @@ async function start() {
   {
     Instagram.csrfToken = csrf;
   }).then(() => {
+    console.log(process.env.USER_NAME);
+    console.log(process.env.USER_PASSWORD);
     return Instagram.auth(process.env.USER_NAME, process.env.USER_PASSWORD).then(async sessionId => {
       Instagram.sessionId = sessionId;
       await startFollow(acc_names.names);
