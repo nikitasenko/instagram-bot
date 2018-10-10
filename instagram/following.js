@@ -5,7 +5,7 @@ Instagram = new Instagram();
 async function startFollow(acc_names) {
    await acc_names.forEach(async name => {
     const user = await Instagram.getUserDataByUsername(name);
-    await Instagram.follow(user.graphql.user.id,1);
+   const result = await Instagram.follow(user.graphql.user.id,0);
   });
 
    setTimeout(async function f() {
@@ -20,11 +20,12 @@ async function start() {
   Instagram.getCsrfToken().then((csrf) =>
   {
     Instagram.csrfToken = csrf;
-    console.log(csrf)
+    console.log('csrf' + csrf)
   }).then(() => {
     return Instagram.auth(process.env.USER_NAME, process.env.USER_PASSWORD).then(async sessionId => {
       Instagram.sessionId = sessionId;
-      await startFollow(acc_names.names);
+      console.log('sessionId ' + sessionId);
+      //await startFollow(acc_names.names);
     }).catch(console.error);
   });
 }
@@ -32,3 +33,5 @@ async function start() {
 module.exports = {
   start
 };
+
+ start();
