@@ -1,11 +1,11 @@
-let Instagram = require('instagram-nodejs-without-api');
+let Instagram = require('./library');
 const acc_names = require('../accaunt_names');
 Instagram = new Instagram();
 
 async function startFollow(acc_names) {
    await acc_names.forEach(async name => {
     const user = await Instagram.getUserDataByUsername(name);
-   const result = await Instagram.follow(user.graphql.user.id,0);
+   await Instagram.follow(user.graphql.user.id,0);
   });
 
    setTimeout(async function f() {
@@ -22,8 +22,6 @@ async function start() {
     Instagram.csrfToken = csrf;
     console.log('csrf' + csrf)
   }).then(() => {
-      console.log(`username ${process.env.USER_NAME}`);
-      console.log(`password ${process.env.USER_PASSWORD}`);
     return Instagram.auth(process.env.USER_NAME, process.env.USER_PASSWORD).then(async sessionId => {
       Instagram.sessionId = sessionId;
       console.log('sessionId ' + sessionId);
