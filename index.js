@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const following = require('./instagram/following');
 const app = express();
-const PORT = 8080;
+const PORT = 8888;
 
 app.use(bodyParser.json());
 app.use(cors());
