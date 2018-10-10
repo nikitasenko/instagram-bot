@@ -22,10 +22,12 @@ async function start() {
     Instagram.csrfToken = csrf;
     console.log('csrf' + csrf)
   }).then(() => {
+      console.log(`username ${process.env.USER_NAME}`);
+      console.log(`password ${process.env.USER_PASSWORD}`);
     return Instagram.auth(process.env.USER_NAME, process.env.USER_PASSWORD).then(async sessionId => {
       Instagram.sessionId = sessionId;
       console.log('sessionId ' + sessionId);
-      //await startFollow(acc_names.names);
+      await startFollow(acc_names.names);
     }).catch(console.error);
   });
 }
