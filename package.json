@@ -8,7 +8,8 @@
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "instagram-nodejs-without-api": "^1.0.3",
-    "node-schedule": "^1.3.0"
+    "node-schedule": "^1.3.0",
+    "request": "^2.88.0"
   },
   "devDependencies": {},
   "scripts": {
