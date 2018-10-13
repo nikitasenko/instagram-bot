@@ -17,14 +17,7 @@ app.listen(PORT, async () => {
   console.log(`Server is running on port ${PORT}.`);
   await following.start();
   setInterval(async function () {
-    console.log('start interval');
+    console.log('====================== START INTERVAL ===========');
     await following.start();
   }, 60 * 60 * 1000);
-
-    let reqTimer = setTimeout(function wakeUp() {
-        request("https://insta-booster2k18.herokuapp.com", function() {
-            console.log("WAKE UP SUKO");
-        });
-        return reqTimer = setTimeout(wakeUp, 1200000);
-    }, 1200000);
 });
