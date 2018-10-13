@@ -23,6 +23,8 @@ async function start() {
   }).then(() => {
     return Instagram.auth(process.env.NAME, process.env.PASS).then(async sessionId => {
       Instagram.sessionId = sessionId;
+      console.log(new Date(Date.now()));
+      console.log(process.env.NAME, process.env.PASS);
       console.log('sessionId ' + sessionId);
       await startFollow(acc_names.names);
     }).catch(console.error);
