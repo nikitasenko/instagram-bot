@@ -13,7 +13,7 @@ async function startFollow(acc_names) {
             const user = await Instagram.getUserDataByUsername(name);
             await Instagram.follow(user.graphql.user.id,0);
         });
-    }, 30000);
+    }, 60000);
 }
 
 async function start() {
